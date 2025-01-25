@@ -2,15 +2,15 @@ import boto3
 import os
 import logging
 
-from decouple import config as cf
 from botocore.client import Config
 from botocore.exceptions import ClientError
+from CSVManager.CSVManager import settings
 
 s3 = boto3.client(
     service_name='s3',
-    aws_access_key_id=cf('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=cf('AWS_SECRET_ACCESS_KEY'),
-    config=Config(region_name=cf('AWS_REGION'), signature_version='v4')
+    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+    config=Config(region_name=settings.AWS_S3_REGION_NAME, signature_version='v4')
 )
 
 class IBucket:

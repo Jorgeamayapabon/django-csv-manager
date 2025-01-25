@@ -1,10 +1,10 @@
 # Dev
 Django==4.2.5
 djangorestframework==3.14.0
+django-storages==1.14
+django-environ==0.11.2
 boto3==1.28.56
 pytest==7.4.2
 psycopg2==2.9.7
 pandas==2.1.1
 SQLAlchemy==2.0.21
-python-decouple==3.8
-python-dotenv==1.0.0

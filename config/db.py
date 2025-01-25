@@ -1,15 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from decouple import config
+from CSVManager.CSVManager import settings
 
-username = config('PSQL_USERNAME')
-password = config('PSQL_PASSWORD')
-host = config('PSQL_HOST')
-port = config('PSQL_PORT')
-database = config('PSQL_DB')
+username: str = settings.PSQL_USERNAME
+password: str = settings.PSQL_PASSWORD
+host: str = settings.PSQL_HOST
+port: str = settings.PSQL_PORT
+database: str = settings.PSQL_DB
 
-database_url = f"postgresql://{username}:{password}@{host}:{port}/{database}"
+database_url: str = f"postgresql://{username}:{password}@{host}:{port}/{database}"
 
 engine = create_engine(database_url, pool_size=50, echo=True)
 
